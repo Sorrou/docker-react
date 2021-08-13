@@ -1,0 +1,13 @@
+FROM node:alpine
+
+ENV https_proxy http://au07459:Ryzk9955@138.21.72.170:3128
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm config set strict-ssl false
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
